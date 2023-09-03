@@ -1,29 +1,28 @@
 #
-# Copyright (C) 2022 ArrowOS
-# Copyright (C) 2023 LineageOS
-# Copyright (C) 2023 SuperiorExtended
+# Copyright (C) 2023 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Inherit from those products. Most specific fist.
+# Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from device makefile
-$(call inherit-product, $(LOCAL_PATH)/device.mk)
+# Inherit some common ArrowOS stuff.
+$(call inherit-product, vendor/superior/config/common.mk)
 
-# Inherit some common Superior Stuff
-$(call inherit-product, vendor/superior/config/common_full_phone.mk)
+# Inherit from viva device
+$(call inherit-product, device/xiaomi/viva/device.mk)
 
-PRODUCT_NAME := superior_viva
 PRODUCT_DEVICE := viva
-PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := Redmi Note 11 Pro (4G)
+PRODUCT_NAME := superior_viva
+PRODUCT_BRAND := Redmi
+PRODUCT_MODEL := viva
+PRODUCT_MANUFACTURER := xiaomi
 
-# BootAnimmation
-TARGET_BOOT_ANIMATION_RES := 1080
+PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
-# Inherit Gapps
-BUILD_WITH_GAPPS := true
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRIVATE_BUILD_DESC="viva-user 11 RP1A.200720.011 V13.0.9.0.RGDEUXM release-keys"
+
+BUILD_FINGERPRINT := Redmi/viva_eea/viva:11/RP1A.200720.011/V13.0.9.0.RGDEUXM:user/release-keys

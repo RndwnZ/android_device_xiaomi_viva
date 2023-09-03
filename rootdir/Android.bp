@@ -1,75 +1,70 @@
 //
-// Copyright (C) 2022 ArrowOS
-// Copyright (C) 2023 LineageOS
+// Copyright (C) 2023 The LineageOS Project
 //
 // SPDX-License-Identifier: Apache-2.0
 //
 
+// Init scripts
+// Init configuration files
 prebuilt_etc {
-    name: "init.cgroup.rc",
-    src: "etc/init/hw/init.cgroup.rc",
+    name: "init.modem.rc",
+    src: "etc/init.modem.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
 
 prebuilt_etc {
     name: "init.connectivity.rc",
-    src: "etc/init/hw/init.connectivity.rc",
+    src: "etc/init.connectivity.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
 
 prebuilt_etc {
-    name: "init.modem.rc",
-    src: "etc/init/hw/init.modem.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "init.nxpnfc.rc",
-    src: "etc/init/hw/init.nxpnfc.rc",
-    sub_dir: "init/hw",
-    vendor: true
-}
-
-prebuilt_etc {
-    name: "init.mt6781.rc",
-    src: "etc/init/hw/init.mt6781.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "init.mt6781.usb.rc",
-    src: "etc/init/hw/init.mt6781.usb.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "init.project.rc",
-    src: "etc/init/hw/init.project.rc",
+    name: "init.aee.rc",
+    src: "etc/init.aee.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
 
 prebuilt_etc {
     name: "init.sensor_1_0.rc",
-    src: "etc/init/hw/init.sensor_1_0.rc",
+    src: "etc/init.sensor_1_0.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
 
 prebuilt_etc {
-    name: "fstab.mt6781",
-    src: "etc/fstab.mt6781",
+    name: "init.mt6781.usb.rc",
+    src: "etc/init.mt6781.usb.rc",
+    sub_dir: "init/hw",
     vendor: true,
 }
 
 prebuilt_etc {
-    name: "ueventd.mt6781.rc",
-    filename: "ueventd.rc",
-    src: "etc/ueventd.mt6781.rc",
-    vendor: true
+    name: "init.mt6781.rc",
+    src: "etc/init.mt6781.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.ago.rc",
+    src: "etc/init.ago.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.project.rc",
+    src: "etc/init.project.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+// fstab
+prebuilt_etc {
+    name: "fstab.mt6781",
+    src: "etc/fstab.mt6781",
+    vendor: true,
 }

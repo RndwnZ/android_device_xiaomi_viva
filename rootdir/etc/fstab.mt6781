@@ -13,9 +13,15 @@ vendor /vendor ext4 ro wait,slotselect,avb,logical,first_stage_mount
 
 product /product ext4 ro wait,slotselect,avb,logical,first_stage_mount
 
+
+
+
+
 /dev/block/platform/bootdevice/by-name/metadata /metadata ext4 noatime,nosuid,nodev,discard wait,check,formattable,first_stage_mount
 
-/dev/block/platform/bootdevice/by-name/userdata /data f2fs noatime,nosuid,nodev,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065,inlinecrypt wait,check,formattable,quota,latemount,resize,reservedsize=128m,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,fsverity
+/dev/block/platform/bootdevice/by-name/userdata /data f2fs noatime,nosuid,nodev,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065 wait,check,formattable,quota,latemount,resize,reservedsize=128m,encryptable=footer,
+
+
 
 /dev/block/platform/bootdevice/by-name/protect1 /mnt/vendor/protect_f ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check,formattable
 /dev/block/platform/bootdevice/by-name/protect2 /mnt/vendor/protect_s ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check,formattable
@@ -86,14 +92,12 @@ product /product ext4 ro wait,slotselect,avb,logical,first_stage_mount
 
 /dev/block/platform/bootdevice/by-name/audio_dsp /audio_dsp emmc defaults defaults
 
-/dev/block/platform/bootdevice/by-name/pi_img /pi_img emmc defaults defaults
 /dev/block/platform/bootdevice/by-name/boot_para /boot_para emmc defaults defaults
+
 /dev/block/platform/bootdevice/by-name/dtbo /dtbo emmc defaults defaults
+
 
 /dev/block/platform/bootdevice/by-name/otp /otp emmc defaults defaults
 
 
 /dev/block/platform/bootdevice/by-name/vbmeta /vbmeta emmc defaults defaults
-
-/dev/block/zram0 none swap defaults zramsize=50%,max_comp_streams=8
-
