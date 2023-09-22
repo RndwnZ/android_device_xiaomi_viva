@@ -70,6 +70,13 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
+    name: "init.stnfc.rc",
+    src: "etc/init.stnfc.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
     name: "init.viva.nfc.rc",
     src: "etc/init.viva.nfc.rc",
     sub_dir: "init/hw",
