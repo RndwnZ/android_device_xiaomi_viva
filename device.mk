@@ -62,8 +62,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     audio.a2dp.default
 
+# Audio configs
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/audio_policy_configuration.xml
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
+
+# Media configs
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/media/,$(TARGET_COPY_OUT_VENDOR)/etc)
 
 # ADB
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -172,14 +177,13 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# Power configs
+# Power/Perf configs
 PRODUCT_COPY_FILES += \
-    $(foreach file,$(wildcard $(LOCAL_PATH)/configs/perf/*), \
-        $(file):$(addprefix $(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/, $(notdir $(file))) )
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/perf/,$(TARGET_COPY_OUT_VENDOR)/etc)
 
+# Seccomp
 PRODUCT_COPY_FILES += \
-    $(foreach file,$(wildcard $(LOCAL_PATH)/props/sku/product/*), \
-        $(file):$(addprefix $(TARGET_COPY_OUT_PRODUCT)/, $(notdir $(file))) )
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/seccomp/,$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy)
 
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 30

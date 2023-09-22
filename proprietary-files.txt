@@ -55,5 +55,8 @@ lib64/libem_usb_jni.so
 lib/libem_wifi_jni.so
 lib64/libem_wifi_jni.so
 
+# NFC
+vendor/lib64/libpn557_fw.so:product/vendor_overlay/30/lib64/libpn557_fw.so
+
 # Camera - Patched (for fix gcam buffer)
 vendor/lib64/libmtkcam_featurepolicy.so:product/vendor_overlay/30/lib64/libmtkcam_featurepolicy.so
