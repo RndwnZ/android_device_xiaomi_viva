@@ -7,15 +7,8 @@
 // Init scripts
 // Init configuration files
 prebuilt_etc {
-    name: "init.aee.rc",
-    src: "etc/init.aee.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "init.ago.rc",
-    src: "etc/init.ago.rc",
+    name: "init.modem.rc",
+    src: "etc/init.modem.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
@@ -28,36 +21,8 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "init.mediatek.rc",
-    src: "etc/init.mediatek.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "init.modem.rc",
-    src: "etc/init.modem.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "init.mt6781.rc",
-    src: "etc/init.mt6781.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "init.mt6781.usb.rc",
-    src: "etc/init.mt6781.usb.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "init.project.rc",
-    src: "etc/init.project.rc",
+    name: "init.aee.rc",
+    src: "etc/init.aee.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
@@ -70,22 +35,43 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "init.stnfc.rc",
-    src: "etc/init.stnfc.rc",
+    name: "init.mt6781.usb.rc",
+    src: "etc/init.mt6781.usb.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
 
 prebuilt_etc {
-    name: "init.viva.nfc.rc",
-    src: "etc/init.viva.nfc.rc",
+    name: "init.mt6781.rc",
+    src: "etc/init.mt6781.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
 
 prebuilt_etc {
-    name: "multi_init.rc",
-    src: "etc/multi_init.rc",
+    name: "init.ago.rc",
+    src: "etc/init.ago.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.project.rc",
+    src: "etc/init.project.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.mediatek.rc",
+    src: "etc/init.mediatek.rc",
+    sub_dir: "init",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.nxpnfc.rc",
+    src: "etc/init.nxpnfc.rc",
     sub_dir: "init/hw",
     vendor: true,
 }

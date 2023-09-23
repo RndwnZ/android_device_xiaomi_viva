@@ -4,11 +4,13 @@ import ${ro.vendor.rc}init.connectivity.rc
 import ${ro.vendor.rc}init.mt6781.usb.rc
 import /vendor/etc/init/hw/init.project.rc
 import /system_ext/etc/init/hw/init.aee.rc
+import /FWUpgradeInit.rc
 import /vendor/etc/init/hw/init.aee.rc
+import ${ro.vendor.rc}init.volte.rc
+import ${ro.vendor.rc}init.mal.rc
 import ${ro.vendor.rc}init.sensor_1_0.rc
-import /vendor/etc/init/hw/init.stnfc.rc
-import /system/etc/init/hw/init.stnfc.rc
-import /vendor/etc/init/hw/init.viva.nfc.rc
+import /vendor/etc/init/hw/init.nxpnfc.rc
+import /vendor/etc/init/init.charge_logger.rc
 
 # init.modem.rc must be the LAST rc file because vold.post_fs_data_done is set in it
 import ${ro.vendor.rc}init.modem.rc
@@ -96,12 +98,6 @@ on charger
     chown system system /sys/class/power_supply/usb/real_type
     chmod 0660 /sys/class/power_supply/usb/real_type
 
-    #for authentic, chip_ok
-    chown system system /sys/class/power_supply/bms/chip_ok
-    chmod 0660 /sys/class/power_supply/usb/bms/chip_ok
-    chown system system /sys/class/power_supply/bms/authentic 
-    chmod 0660 /sys/class/power_supply/usb/bms/authentic 
-
 #    start fuelgauged
 #    start fuelgauged_nvram
 
@@ -138,7 +134,7 @@ on fs
     write /proc/sys/vm/page-cluster 0
     write /proc/sys/vm/swappiness 100
     write /sys/kernel/mm/swap/vma_ra_enabled false
-    # swapon_all /vendor/fstab.enableswap
+    swapon_all /vendor/fstab.enableswap
 
     # mount rescue
     mount ext4 /dev/block/bootdevice/by-name/rescue /mnt/rescue noatime
@@ -301,13 +297,6 @@ on post-fs-data
 # GPS
     chmod 0775 /vendor/xbin/MPED
     chmod 0666 /dev/gps_emi
-
-    #haptic Start
-    mkdir /mnt/vendor/persist/haptics 0755 system system
-    #haptic End
-
-    # Create directory used by audio&vibrator cit
-    mkdir /data/vendor/cit 0770 system system
 
 # -----------------------
 # Add by MTK
@@ -1131,3 +1120,8 @@ service mi_thermald /system/vendor/bin/mi_thermald
     group system
     seclabel u:r:mi_thermald:s0
 
+# modify for mi runin apk
+on property:ro.factory_mode=1 && property:sys.boot_completed=1
+    chown system system /data/local/tmp
+    chmod 0777 /data/local/tmp
+    chmod 0777 /dev/block/sdc8

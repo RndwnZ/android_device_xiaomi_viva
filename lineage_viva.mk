@@ -10,13 +10,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Inherit some common LineageOS stuff
-TARGET_INCLUDE_LIVE_WALLPAPERS := false
-TARGET_INCLUDE_STOCK_ARCORE := false
-TARGET_BOOT_ANIMATION_RES := 1080
-TARGET_INCLUDE_PIXEL_CHARGER := true
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Inherit from fleur device
+# Inherit from viva device
 $(call inherit-product, device/xiaomi/viva/device.mk)
 
 PRODUCT_DEVICE := viva

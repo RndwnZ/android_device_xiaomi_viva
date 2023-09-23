@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="co.potatoproject.dt2w.mt6781"
+    package="co.potatoproject.dt2w.mi6781"
     android:versionCode="1"
     android:versionName="1.0"
     android:sharedUserId="android.uid.system">
@@ -18,6 +18,6 @@
             </intent-filter>
         </receiver>
 
-        <service android:enabled="true" android:name=".DT2WServicemt6781" />
+        <service android:enabled="true" android:name=".DT2WServicefleur" />
     </application>
 </manifest>

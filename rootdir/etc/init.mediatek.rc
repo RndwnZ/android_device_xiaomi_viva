@@ -33,3 +33,7 @@ on boot
     # selinux nodes, hide permissive state
     chmod 0640 /sys/fs/selinux/enforce
     chmod 0440 /sys/fs/selinux/policy
+
+on property:sys.boot_completed=1
+    # force disable hw overlays to be true
+    exec - root -- /system/bin/sh -c "service call SurfaceFlinger 1008 i32 1" 

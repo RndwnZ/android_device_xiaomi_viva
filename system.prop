@@ -64,29 +64,6 @@ persist.bluetooth.bluetooth_audio_hal.disabled=true
 # SafetyNet
 ro.boot.verifiedbootstate=green
 
-# Custom camera props
-persist.vendor.camera.privapp.list=org.codeaurora.snapcam,com.android.camera2,com.google.camera
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera2,com.google.camera,org.pixelexperience.faceunlock
-vendor.camera.aux.packageblacklist=org.telegram.messenger,com.microsoft.teams,com.discord
-
-# Oversharpening
-persist.vendor.sys.pq.adl.idx=0
-persist.vendor.sys.pq.hdr.en=0
-persist.vendor.sys.pq.hfg.en=0
-persist.vendor.sys.pq.iso.shp.en=0
-persist.vendor.sys.pq.mdp.color.dbg=0
-persist.vendor.sys.pq.mdp.color.idx=0
-persist.vendor.sys.pq.mdp.dre.en=0
-persist.vendor.sys.pq.mdp.hdrvp.dre.en=0
-persist.vendor.sys.pq.mdp.vp.dre.en=0
-persist.vendor.sys.pq.picmode=0
-persist.vendor.sys.pq.shp.idx=0
-persist.vendor.sys.pq.ultrares.en=0
-persist.vendor.sys.pq.ultrares.strength=0
-vendor.debug.pq.dre.demowin.x=0
-vendor.debug.pq.dshp.en=0
-vendor.debug.pq.shp.en=0
-
 # USB
 ro.sys.usb.mtp.whql.enable=0
 ro.sys.usb.storage.type=mtp
@@ -101,9 +78,6 @@ ro.mediatek.wlan.p2p=1
 mediatek.wlan.ctia=0
 wifi.tethering.interface=ap0
 wifi.direct.interface=p2p0
-
-# Hardware modules
-ro.hardware.nfc_nci=pn8x
 
 # ZRAM
 ro.zram.mark_idle_delay_mins=60
