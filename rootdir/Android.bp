@@ -63,13 +63,6 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "init.mediatek.rc",
-    src: "etc/init.mediatek.rc",
-    sub_dir: "init",
-    vendor: true,
-}
-
-prebuilt_etc {
     name: "init.nxpnfc.rc",
     src: "etc/init.nxpnfc.rc",
     sub_dir: "init/hw",

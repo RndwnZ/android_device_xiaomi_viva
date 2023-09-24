@@ -15,10 +15,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 # A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
-# VNDK
-PRODUCT_TARGET_VNDK_VERSION := 30
-PRODUCT_SHIPPING_API_LEVEL := 30
-
 # A/B slot
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
@@ -51,12 +47,24 @@ PRODUCT_PACKAGES += \
     checkpoint_gc \
     otapreopt_script
 
+# Partitions
+PRODUCT_BUILD_SUPER_PARTITION := false
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
+# VNDK
+PRODUCT_TARGET_VNDK_VERSION := 30
+PRODUCT_SHIPPING_API_LEVEL := 30
+
 # Bootctrl
 PRODUCT_PACKAGES += \
     bootctrl.default \
     android.hardware.boot@1.2-impl \
     android.hardware.boot@1.2.recovery \
     android.hardware.boot@1.2-service
+
+# DT2W
+PRODUCT_PACKAGES += \
+    DT2W-Service-viva
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -65,23 +73,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/audio_policy_configuration.xml
 
-# ADB
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.adb.nonblocking_ffs=0 \
-    persist.adb.nonblocking_ffs=0 \
-    ro.adb.secure=0 \
-    ro.debuggable=1 \
-    persist.sys.usb.config=adb
-
 # Dex
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     Settings \
     SystemUI
 
-# DT2W
-PRODUCT_PACKAGES += \
-    DT2W-Service-viva
-    
 # fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.1-impl-mock \
@@ -140,9 +136,12 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.2-service \
+    com.android.nfc_extras \
+    libchrome.vendor \
     NfcNci \
-    Tag \
-    com.android.nfc_extras
+    SecureElement \
+    Tag
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -161,10 +160,6 @@ PRODUCT_PACKAGES += \
     init.nxpnfc.rc \
     init.project.rc
 
-# Partitions
-PRODUCT_BUILD_SUPER_PARTITION := false
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
-
 # Power configs
 PRODUCT_COPY_FILES += \
     $(foreach file,$(wildcard $(LOCAL_PATH)/configs/perf/*), \
@@ -176,10 +171,6 @@ PRODUCT_SHIPPING_API_LEVEL := 30
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
-
-# [TMP] Copy init files into vendor_overlay
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/init.mediatek.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/init.mediatek.rc
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/viva/viva-vendor.mk)
