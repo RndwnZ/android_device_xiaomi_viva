@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/superior__viva.mk
+    $(LOCAL_DIR)/superior_viva.mk
