@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_viva.mk
+    $(LOCAL_DIR)/superior__viva.mk
